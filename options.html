@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Password generator options</title>
+	<link rel="stylesheet" href="css/options.css" />
+	<link id="darkStylesheet" rel="stylesheet" href="css/options.dark.css" disabled/>
+	<script src="js/script.js"></script>
+	<script src="js/options.js"></script>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<style>
+		*::before, *::after, * {
+		  box-sizing: border-box;
+		}
+	
+		body {
+		  background-color: hsl(261, 88%, 17%);
+		  color: hsl(261, 88%, 90%);
+		  text-align: center;
+		}
+	
+		.strength-meter {
+		  position: relative;
+		  height: 2rem;
+		  width: 90%;
+		  border: 3px solid hsl(0, 88%, 57%);
+		  border-radius: 1rem;
+		  margin: 0 auto;
+		  overflow: hidden;
+		}
+	
+		.strength-meter::before {
+		  content: '';
+		  position: absolute;
+		  left: 0;
+		  height: 100%;
+		  width: calc(1% * var(--strength, 0));
+		  background-color: hsl(261, 88%, 67%);
+	
+		  transition: width 200ms;
+		}
+	
+		.password-input {
+		  margin-top: 1rem;
+		  width: 90%;
+		  padding: .25rem .75rem;
+		  background-color: hsl(261, 88%, 25%);
+		  color: white;
+		  border: 1px solid hsl(261, 88%, 57%);
+		  outline: none;
+		  text-align: center;
+		  border-radius: .3rem;
+		}
+	
+		.password-input:focus {
+		  border-color: hsl(261, 88%, 70%);
+		}
+	
+		.reasons > * {
+		  margin-top: .5rem;
+		  color: hsl(261, 88%, 80%);
+		}
+	  </style>
+	  <script src="Strength.js" defer></script>
+
+
+</head>
+
+<body>
+	<div style="margin-bottom: 5px;">
+		<h1 loc="name" style="display: inline-block;">Password generator</h1>
+		<span id="version">v2.0</span>
+	</div>
+
+	<h2 loc="generatorOptions">Generator options</h2>
+	<div class="group">
+		<label for="length" style="margin: 5px 0px;"><b loc="length">Password length</b></label>
+		<input id="length" type="number" />
+		<label><span loc="hint">Reccommended password length:</span> <b>16-32</b></label>
+	</div>
+	<div class="group">
+		<label class="checkbox control">
+			<input id="includeSymbols" type="checkbox" />
+			<span class="mark"></span>
+			<span></span><span loc="includeSymbols">Include symbols (e.g.</span> @#$%)</span>
+		</label>
+		<label class="checkbox control">
+			<input id="includeNumbers" type="checkbox" />
+			<span class="mark"></span>
+			<span><span loc="includeNumbers">Include numbers (e.g.</span> 123456)</span>
+		</label>
+		<label class="checkbox control">
+			<input id="includeLowercase" type="checkbox" />
+			<span class="mark"></span>
+			<span><span loc="includeLowercase">Include lowercase characters (e.g.</span> abcdefgh)</span>
+		</label>
+		<label class="checkbox control">
+			<input id="includeUppercase" type="checkbox" />
+			<span class="mark"></span>
+			<span><span loc="includeUppercase">Include uppercase characters (e.g.</span> ABCDEFGH)</span>
+		</label>
+		<label class="checkbox control">
+			<input id="excludeSimilar" type="checkbox" />
+			<span class="mark"></span>
+			<span><span loc="excludeSimilar">Exclude similar characters (e.g.</span> i, l, 1, L, o, 0, O)</span>
+		</label>
+		<label class="checkbox control">
+			<input id="excludeSpecial" type="checkbox" />
+			<span class="mark"></span>
+			<span><span loc="excludeSpecial">Exclude ambiguous characters (e.g.</span> { } [ ] ( ) / \ ' " ` ~ , ; : . &lt; &gt;)</span>
+		</label>
+	</div>
+
+	<h2 loc="extOptions">Extension options</h2>
+	<div class="group">
+		<label class="checkbox control">
+			<input id="showButton" type="checkbox" />
+			<span class="mark"></span>
+			<span loc="showButton">Insert "Generate password" button below password fields</span>
+		</label>
+		<label class="checkbox control">
+			<input id="showContext" type="checkbox" />
+			<span class="mark"></span>
+			<span loc="showContext">Add "Generate password" action to context menu</span>
+		</label>
+	</div>
+
+	<div style="margin-bottom: 10px;">
+		<button loc="generate" class="accent" id="generate">Generate password</button>
+		</div>
+
+	<h1>Password Strength Test</h1>
+	<div class="strength-meter" id="strength-meter"></div>
+	<input class="password-input" id="password-input" value="password" type="text" autofocus aria-laballedby="password">
+	<div id="reasons" class="reasons"></div>
+		
+</body>
+</html>
