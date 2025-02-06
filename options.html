@@ -17,16 +17,16 @@
 		}
 	
 		body {
-		  background-color: hsl(261, 88%, 17%);
-		  color: hsl(261, 88%, 90%);
+		  background-color: hsl(185, 47%, 84%);
+		  color: hsl(240, 3%, 13%);
 		  text-align: center;
 		}
 	
 		.strength-meter {
 		  position: relative;
-		  height: 2rem;
-		  width: 90%;
-		  border: 3px solid hsl(0, 88%, 57%);
+		  height: 1em;
+		  width: 50%;
+		  border: 2px solid hsl(0, 6%, 55%);
 		  border-radius: 1rem;
 		  margin: 0 auto;
 		  overflow: hidden;
@@ -47,8 +47,8 @@
 		  margin-top: 1rem;
 		  width: 90%;
 		  padding: .25rem .75rem;
-		  background-color: hsl(261, 88%, 25%);
-		  color: white;
+		  background-color: hsl(261, 19%, 70%);
+		  color: rgb(7, 0, 0);
 		  border: 1px solid hsl(261, 88%, 57%);
 		  outline: none;
 		  text-align: center;
@@ -59,9 +59,10 @@
 		  border-color: hsl(261, 88%, 70%);
 		}
 	
-		.reasons > * {
+		.reasons * {
 		  margin-top: .5rem;
-		  color: hsl(261, 88%, 80%);
+		  color: hsl(0, 69%, 33%);
+
 		}
 	  </style>
 	  <script src="Strength.js" defer></script>
@@ -77,9 +78,9 @@
 
 	<h2 loc="generatorOptions">Generator options</h2>
 	<div class="group">
-		<label for="length" style="margin: 5px 0px;"><b loc="length">Password length</b></label>
+		<label for="length" style="margin: 5px 0px;"><b loc="length">Password Length</b></label>
 		<input id="length" type="number" />
-		<label><span loc="hint">Reccommended password length:</span> <b>16-32</b></label>
+		<label style="color: brown;"><span loc="hint">Reccommended password length:</span> <b>16-32</b></label>
 	</div>
 	<div class="group">
 		<label class="checkbox control">
